@@ -1,0 +1,55 @@
+//request for add film:
+http://localhost:5000/film/add
+
+//body request for add film:
+{
+    "nom":"chofli-halaa",
+    "liste_acteurs":["khaled"]
+
+}
+
+////request for get film:
+http://localhost:5000/film/ 
+
+//request for delte film:
+http://localhost:5000/film/delte/605a72548938027d302eeb05
+
+
+//request for add seance:
+http://localhost:5000/seance/add/:idfilm
+
+//body for seance:
+{
+    "date":"12/10/2020",
+    "temps":"2h:15",
+    "nombre_place":"5"
+}
+//request for get-all-seance:
+
+http://localhost:5000/seance/
+ 
+//delte seance:
+ http://localhost:5000/seance/delte/605a774ae379167e1a5e48e2
+
+ //request for signup:
+ http://localhost:5000/user/signup
+
+ //body for signup:
+ {
+    "email":"selmikhaled25@gmail.com",
+    "password":"khaled123",
+    "nom":"khaled"
+}
+
+//request for login:
+{
+    "email":"selmikhaled25@gmail.com",
+    "password":"khaled123"
+}
+ //request for reservation:
+ http://localhost:5000/reservation/add/605c917d7bad7effd00250f3(id de seance)
+
+//body of reservation:
+ {
+    "nbr_place":"2"
+}
