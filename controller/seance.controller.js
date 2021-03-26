@@ -26,7 +26,7 @@ exports.getAllSeance = async (req, res) => {
         $push: { liste_seance: seance._id },
       });
     
-      res.status(200).json({seance:seance,message:"film added"});
+      res.status(200).json({seance:seance,message:"seance added"});
     } catch (err) {
       res.status(400).json({Error:err.message});
     }
@@ -68,3 +68,23 @@ exports.getAllSeance = async (req, res) => {
           res.status(400).json("Error" + err.message);
         }
       };
+    
+    exports.Reservation=async (req,res)=>{
+      const {id}=req.params.id;
+      const {nombre_place}=req.body
+      try{
+      const seance=await Seance.findById(id);
+      if(!seance){
+        return res.status(404).json("seance with this id not found")
+      }
+      if (seance.nombre_place>=nombre_place){
+        seance.nombre_place=seance.nombre_place-nombre_place;
+        await seance.save();
+        res.status(200).json({message:"seance reservée avec succes"});
+      }else{
+        throw new Error("il n'est pas encore de place")
+      }
+    }catch(err){
+      res.status(400).json({"error":err.message});
+    }
+    }

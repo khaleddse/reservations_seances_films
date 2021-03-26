@@ -1,4 +1,4 @@
-const User=require('../model/user.model');
+const {User}=require("../model/user.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -36,7 +36,7 @@ exports.login = async (req, res, next) => {
       if (!user) {
         return res.status(401).json({ message: 'vous avez pas un compte!' });
       }
-  
+  console.log(user)
       const isMatch = await bcrypt.compare(password, user.password);
   
       if (isMatch) {
@@ -56,6 +56,6 @@ exports.login = async (req, res, next) => {
         return res.status(400).json({ message: 'mot de passe incorrect' });
       }
     } catch (err) {
-      return res.status(400).json({ err });
+      return res.status(400).json({ err:err.message });
     }
   };

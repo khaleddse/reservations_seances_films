@@ -6,7 +6,7 @@ Joi.objectID = require('joi-objectid')(Joi)
 
 const seance=new Schema({
     date:{
-        type:Date,
+        type:String,
         required:true
     },
     temps:{type:String,
@@ -19,7 +19,7 @@ const seance=new Schema({
 })
 let seance_validation_schema = 
 Joi.object({
-    date:Joi.date(),
+    date:Joi.string().regex(new RegExp("^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.]((19|20)\\d\\d)$")),
     temps : Joi.string().min(3).required(),
     nombre_place : Joi.number().positive(),
    

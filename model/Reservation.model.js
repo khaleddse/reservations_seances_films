@@ -7,9 +7,9 @@ const Reservation=new Schema({
     user:[{ type: mongoose.Schema.Types.ObjectId, 
         ref: "User"
      }],
-    seance:[{ type: mongoose.Schema.Types.ObjectId,
+    seance:{ type: mongoose.Schema.Types.ObjectId,
          ref: "seance" 
-        }],
+        },
     nbr_place:{type:Number,
         required: true
     }
