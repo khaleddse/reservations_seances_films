@@ -73,13 +73,14 @@ exports.deleteReservation = async (req, res) => {
     const diffTime = Math.abs(date1 - date2);
     console.log(diffTime);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) - 1;
-    if (diffDays < 1 && diffDays > 0) {
-      return res
-        .status(404)
-        .json({
-          message:
-            "desole vous ne pouvez pas annuler la reservation avant une seul jour ",
-        });
+    //si vous pouvez  annuler  reservation avant un seul jour vou ne pouvez pas
+    if (diffDays < 1 && diffDays >= 0) {
+      return res.status(404).json({
+        message:
+          "desole vous ne pouvez pas annuler la reservation avant une seul jour ",
+      });
+      //si vous pouvez annuler le reservation on ajouter
+      //le nombre_place dans la reservation a la seance
     } else if (diffDays > 1) {
       seance.nombre_place = seance.nombre_place + reserv.nbr_place;
       await seance.save();
@@ -90,6 +91,7 @@ exports.deleteReservation = async (req, res) => {
         reservation: Rst,
         message: "reservation est supprimée",
       });
+      //sinon si le seance est deja fait on a supprimer le reservation
     } else {
       const Rst = await reserv.remove();
 
@@ -102,6 +104,7 @@ exports.deleteReservation = async (req, res) => {
     res.status(400).json("Error" + err);
   }
 };
+
 exports.upDateReservation = async (req, res) => {
   try {
     const nbr_place = req.body.nbr_place;
@@ -125,29 +128,32 @@ exports.upDateReservation = async (req, res) => {
     }
     today = mm + "/" + dd + "/" + yyyy;
     const dd1 = seance.date.split("/");
-    console.log(dd1);
+
+    //pour changer le format date de seance a mm/dd/yyyy
     const date = dd1[1] + "/" + dd1[0] + "/" + dd1[2];
-    console.log(date);
+
     const date1 = new Date(date);
-    console.log(date1);
+
     const date2 = new Date(Date.now());
     const diffTime = Math.abs(date1 - date2);
-    console.log(diffTime);
+
+    //diffDays pour calculer le difference entre le jour de l'update est le date de seance
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) - 1;
 
-    if (diffDays < 1 && diffDays > 0) {
-      return res
-        .status(404)
-        .json({
-          message:
-            "desole tu ne peut pas modifeir le reservation avant une seul jour ",
-        });
+    //si tu peut modifier la reservation avant un seul jour tu peut pas
+    if (diffDays < 1) {
+      return res.status(404).json({
+        message:
+          "desole tu ne peut pas modifeir le reservation avant une seul jour ",
+      });
     }
-
     if (reserv.nbr_place == nbr_place) {
       return res.status(404).json({
         message: "reservation deja reservée avec meme nombre de place",
       });
+
+      //sinon si vous pouvez dimiuni le nombre de place de la reservation , 
+      //on ajouter vous place a la seance
     } else if (reserv.nbr_place > nbr_place && nbr_place > 0) {
       const diff_nbrPlace = reserv.nbr_place - nbr_place;
 
@@ -160,6 +166,8 @@ exports.upDateReservation = async (req, res) => {
         reservation: Rst,
         message: "reservation update avec succes ",
       });
+      //sinon si vous pouvez augmenter le nombre de place dans votre reservation
+      //on verifiée apres si il ya place dispoinible ou non
     } else if (reserv.nbr_place < nbr_place) {
       const diff_nbrPlace = nbr_place - reserv.nbr_place;
       if (seance.nombre_place >= diff_nbrPlace) {
