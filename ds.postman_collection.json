@@ -1,0 +1,360 @@
+{
+	"info": {
+		"_postman_id": "29f8b56b-865b-463a-8cb2-9279d9e11832",
+		"name": "ds",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add-film",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nom\":\"chofli-halaa\",\n    \"liste_acteurs\":[\"sboaii\",\"slimen\"]\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/film/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"film",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-all-seance",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"date\":\"12/11/2005\",\n    \"temps\":\"2h:30\",\n    \"nombre_place\":\"3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/seance/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"seance",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all-film",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/film/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"film",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delte-film",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/film/delte/605a72548938027d302eeb05",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"film",
+						"delte",
+						"605a72548938027d302eeb05"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delte-seance",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/seance/delte/605a774ae379167e1a5e48e2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"seance",
+						"delte",
+						"605a774ae379167e1a5e48e2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find-by-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/seance/605e3f13050eb73060c21460",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"seance",
+						"605e3f13050eb73060c21460"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sinup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nom\":\"khaled\",\n    \"email\":\"selmikhaled25@gmail.com\",\n    \"password\":\"khaled123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reservation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDVlNjZhMTdhOTdiOWM2YzM3YzkxZTAiLCJlbWFpbCI6InNlbG1pa2hhbGVkMjVAZ21haWwuY29tIiwibm9tIjoia2hhbGVkIiwiaWF0IjoxNjE2Nzk5NDA4LCJleHAiOjE2MTY4MDMwMDh9.a3eyQcYNdX71nvKO6weQq4JcDIM_UvQ5JYS9asbxdhk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nbr_place\":\"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/reservation/add/605e6629caa97f9fd44945c0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"reservation",
+						"add",
+						"605e6629caa97f9fd44945c0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"selmikhaled25@gmail.com\",\n    \"password\":\"khaled123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-all-reservation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/reservation/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"reservation",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-seance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDVlNjZhMTdhOTdiOWM2YzM3YzkxZTAiLCJlbWFpbCI6InNlbG1pa2hhbGVkMjVAZ21haWwuY29tIiwibm9tIjoia2hhbGVkIiwiaWF0IjoxNjE2Nzk5NDA4LCJleHAiOjE2MTY4MDMwMDh9.a3eyQcYNdX71nvKO6weQq4JcDIM_UvQ5JYS9asbxdhk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"date\":\"28/03/2021\",\n    \"temps\":\"2h:15\",\n    \"nombre_place\":\"5\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/seance/add/605e6609caa97f9fd44945bf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"seance",
+						"add",
+						"605e6609caa97f9fd44945bf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-reservation",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDVjODkzZjFmZGI3ZjdiYzY0YjBlMDAiLCJlbWFpbCI6InNlbG1pa2hhbGVkMjVAZ21haWwuY29tIiwibm9tIjoia2hhbGVkIiwiaWF0IjoxNjE2NzkxNDE0LCJleHAiOjE2MTY3OTUwMTR9.t9Nw6INI1XDDAGoKRL031DxHhgJiHX8gxINgsvl1D_s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nbr_place\":\"6\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/reservation/update/605e3f13050eb73060c21460/605e3f4f050eb73060c21461",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"reservation",
+						"update",
+						"605e3f13050eb73060c21460",
+						"605e3f4f050eb73060c21461"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delte-reservation",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/reservation/delte/605e6a0305d74b70f40facd9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"reservation",
+						"delte",
+						"605e6a0305d74b70f40facd9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

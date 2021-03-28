@@ -16,7 +16,7 @@ exports.getAllSeance = async (req, res) => {
     
     try {
         let results = seance_validation(req.body);
-        console.log(results)
+       
     if(results.error)
         return res.status(400).json({message:results.error.details[0].message});
     const { date, temps, nombre_place} = req.body;

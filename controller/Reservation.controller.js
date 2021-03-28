@@ -73,7 +73,7 @@ exports.deleteReservation = async (req, res) => {
     const diffTime = Math.abs(date1 - date2);
     console.log(diffTime);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) - 1;
-    //si vous pouvez  annuler  reservation avant un seul jour vou ne pouvez pas
+    //si vous pouvez  annuler  reservation avant un seul jour vous ne pouvez pas
     if (diffDays < 1 && diffDays >= 0) {
       return res.status(404).json({
         message:

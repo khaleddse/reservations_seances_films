@@ -46,10 +46,17 @@ http://localhost:5000/seance/
     "email":"selmikhaled25@gmail.com",
     "password":"khaled123"
 }
- //request for reservation:
+ //request for  add reservation:
  http://localhost:5000/reservation/add/605c917d7bad7effd00250f3(id de seance)
 
-//body of reservation:
+//body of add reservation:
+ {
+    "nbr_place":"2"
+}
+//request for  update reservation:
+http://localhost:5000/reservation/update/605e66d57a97b9c6c37c91e1 (ud reservation)
+
+//body of add reservation:
  {
     "nbr_place":"2"
 }
